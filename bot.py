@@ -5,7 +5,7 @@ import db
 
 
 async def on_startup(_):
-    print("Папа в здании")
+    print("Папа в здании ")
     db.db_start()
 
 
