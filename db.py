@@ -12,10 +12,10 @@ def db_start():
 
 async def user_add(message):
     try:
-        await cur.execute("INSERT INTO users VALUES (?, ?, ?)", (message.from_user.id,  message.from_user.username, message.text))
+        cur.execute("INSERT INTO users VALUES (?, ?, ?)", (message.from_user.id,  message.from_user.username, message.text))
         await create_bot.bot.send_message(5097527515,
                                f"Новый пользователь {message.from_user.username} {message.from_user.id} {message.text}")
-        await create_bot.bot.send_message(message.from_user.id, "Ваш айди добавлен в базу данных")
+        await create_bot.bot.send_message(message.from_user.id, f"Ваш айди {message.from_user.id} добавлен в базу данных")
         print("Пользователь добавлен")
     except:
         print("Повторное обращение")
